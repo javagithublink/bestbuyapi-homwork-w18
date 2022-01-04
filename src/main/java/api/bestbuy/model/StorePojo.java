@@ -3,7 +3,7 @@ package api.bestbuy.model;
 public class StorePojo {
 
 
-    private int id;
+
     private String name;
     private String type;
     private String address;
@@ -12,19 +12,8 @@ public class StorePojo {
     private String state;
     private String zip;
     private double lat;
-    private double lag;
+    private double lng;
     private String hours;
-    private String createAt;
-    private String updatedAt;
-    private String services;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
@@ -90,12 +79,12 @@ public class StorePojo {
         this.lat = lat;
     }
 
-    public double getLag() {
-        return lag;
+    public double getLng() {
+        return lng;
     }
 
-    public void setLag(double lag) {
-        this.lag = lag;
+    public void setLng(double lng) {
+        this.lng = lng;
     }
 
     public String getHours() {
@@ -105,31 +94,6 @@ public class StorePojo {
     public void setHours(String hours) {
         this.hours = hours;
     }
-
-    public String getCreateAt() {
-        return createAt;
-    }
-
-    public void setCreateAt(String createAt) {
-        this.createAt = createAt;
-    }
-
-    public String getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(String updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
-    public String getServices() {
-        return services;
-    }
-
-    public void setServices(String services) {
-        this.services = services;
-    }
-
     /*{
         "id": 4,
             "name": "Minnetonka",

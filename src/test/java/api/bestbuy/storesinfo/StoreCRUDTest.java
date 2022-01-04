@@ -6,10 +6,13 @@ import api.bestbuy.utility.Utility;
 import io.restassured.response.Response;
 import org.junit.Test;
 
+import java.util.HashMap;
+
 import static io.restassured.RestAssured.given;
 
 public class StoreCRUDTest extends TestBase {
 
+    static int storeId;
     static String name = "Harrow"+ Utility.getRandomValue();
     static String type = "BigBox";
     static String address = Utility.getRandomValue()+"North Street";
@@ -36,7 +39,7 @@ public class StoreCRUDTest extends TestBase {
         storePojo.setState(state);
         storePojo.setZip(zip);
         storePojo.setLat(lat);
-        storePojo.setLag(lag);
+        storePojo.setLng(lag);
         storePojo.setHours(hours);
 
         Response response = given()
@@ -49,6 +52,24 @@ public class StoreCRUDTest extends TestBase {
 
 
     }
+
+    @Test
+    public void test002() {
+        String p1 = "data.findAll{it.name=='";
+        String p2 = "'}.get(0)";
+
+        HashMap<String, Object> value =
+                given()
+                        .when()
+                        .get("/stores")
+                        .then()
+                        .statusCode(200)
+                        .extract()
+                        .path(p1 + name + p2);
+        System.out.println(value);
+        storeId = (Integer) value.get(0);
+    }
+
 }
 
 

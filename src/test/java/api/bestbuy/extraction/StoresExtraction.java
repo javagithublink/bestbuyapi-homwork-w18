@@ -114,10 +114,10 @@ public class StoresExtraction {
         System.out.println(services);
     }
 
-    //10. Get store services of the store where service name = Windows Store XXXXXXXXXXXXXXXXXXX
+    //10. Get store services of the store where service name = Windows Store
     @Test
     public void test010() {
-        List<List<HashMap<String, ?>>> serviceName = response.extract().path("data.services.findAll{it.name='Windows Store'}.name");
+        List<List<HashMap<String, ?>>> serviceName = response.extract().path("data.findAll{it.services.findAll{it.name=='Windows Store'}}.services");
 
         System.out.println(serviceName);
     }
