@@ -1,6 +1,6 @@
 package api.bestbuy.model;
 
-public class StudentPojo {
+public class StorePojo {
 
 
     private int id;
@@ -11,8 +11,8 @@ public class StudentPojo {
     private String city;
     private String state;
     private String zip;
-    private String lat;
-    private String lag;
+    private double lat;
+    private double lag;
     private String hours;
     private String createAt;
     private String updatedAt;
@@ -82,19 +82,19 @@ public class StudentPojo {
         this.zip = zip;
     }
 
-    public String getLat() {
+    public double getLat() {
         return lat;
     }
 
-    public void setLat(String lat) {
+    public void setLat(double lat) {
         this.lat = lat;
     }
 
-    public String getLag() {
+    public double getLag() {
         return lag;
     }
 
-    public void setLag(String lag) {
+    public void setLag(double lag) {
         this.lag = lag;
     }
 

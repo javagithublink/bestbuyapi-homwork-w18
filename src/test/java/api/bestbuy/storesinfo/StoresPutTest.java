@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
 
-public class StoresPostTest extends TestBase {
+public class StoresPutTest extends TestBase {
 
     @Test
     public void test001() {
@@ -20,17 +20,18 @@ public class StoresPostTest extends TestBase {
         storePojo.setCity("London");
         storePojo.setState("MN");
         storePojo.setZip("256879");
-        //storePojo.setLat(44.879314);
-        //storePojo.setLag(93.077156);
+        storePojo.setLat(44.879314);
+        storePojo.setLag(93.077156);
         storePojo.setHours("Mon: 10-9; Tue: 10-9; Wed: 10-9; Thurs: 10-9; Fri: 10-9; Sat: 10-9; Sun: 10-8");
-        storePojo.setServices("");
 
         Response response = given()
                 .header("Content-Type", "application/json")
+                .pathParam("id",7)
                 .body(storePojo)
                 .when()
-                .post();
-        //response.then().statusCode(201);
+                .put("/{id}");
+        response.then().statusCode(201);
         response.prettyPrint();
     }
+
 }
